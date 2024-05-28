@@ -59,6 +59,7 @@
     </style>
     <script>
         function showPasswordInput(documentType) {
+            hideAllDocuments();
             document.getElementById("password-section").style.display = "block";
             document.getElementById("password").dataset.documentType = documentType;
         }
@@ -77,6 +78,7 @@
             }
 
             if (password === correctPassword) {
+                hideAllDocuments();
                 document.getElementById("password-section").style.display = "none";
                 document.getElementById(documentType).style.display = "block";
             } else {
@@ -86,6 +88,13 @@
 
         function redirectToGoogle() {
             window.location.href = "https://google.com";
+        }
+
+        function hideAllDocuments() {
+            const documents = document.querySelectorAll(".document");
+            documents.forEach(doc => {
+                doc.style.display = "none";
+            });
         }
     </script>
 </head>
@@ -133,9 +142,8 @@
             <li>Set Flaps: 1+F (Initial takeoff configuration)</li>
             <li>Turn off Dome Light: OFF</li>
             <li>Perform Spoilers Check: UP then DOWN (Ensure functionality)</li>
-            <li><strong>Pre-Runway:</strong></li>
+                       <li><strong>Pre-Runway:</strong></li>
             <li>Turn off Taxi Lights: OFF (At the holding point)</li>
-           
             <li>Switch on Strobe Lights: ON (Before entering the active runway)</li>
             <li>Switch off Logo Lights: OFF (Before entering the active runway)</li>
             <li>Adjust Flaps: 2 (Only for Airbus A321-200 and A321neo, set takeoff flaps)</li>
@@ -184,28 +192,28 @@
         <p>Welcome aboard, and let’s fly faster together!</p>
         <p>Warm regards,</p>
         <p>The Air Flash Management Team</p>
-        <button onclick="redirectToGoogle()">Done Reading</button
-        </div>
+        <button onclick="redirectToGoogle()">Done Reading</button>
+    </div>
 
-        <div class="container document" id="groundOperations">
-            <h2>Ground Operations Guide</h2>
-            <p>Welcome To The Air Flash Ground Crew Team!</p>
-            <p>Welcome to Air Flash, where we fly, but fly faster. We are a low-cost, British Ro-Aviation airline founded in the middle of March 2024 by aviatorflash, bringing an exciting new era to ro-aviation with constant giveaways, development, flights, and many classes to choose from at such low prices! Daily, at Air Flash, we thrive to create a safe and welcoming community. Thanks to our amazing members of staff and the vibrant members of our server, this is truly possible. We operate from Liverpool John Lennon Airport, which serves as our home base.</p>
-            <p>You have chosen to be a part of our Ground Crew team, a crucial role that ensures the smooth operation of our flights and the satisfaction of our passengers. Here are some instructions and expectations to help you excel in your role:</p>
-            <ol>
-                <li><strong>Aircraft Preparation:</strong> Before each flight, ensure that the aircraft is properly prepared. This includes refueling, performing pre-flight checks, and verifying that all necessary supplies are on board.</li>
-                <li><strong>Passenger Assistance:</strong> Assist passengers with boarding and deplaning. Provide directions, answer questions, and help with any special needs to ensure a smooth and pleasant experience.</li>
-                <li><strong>Baggage Handling:</strong> Manage the loading and unloading of baggage. Ensure that all luggage is handled with care and properly stowed to prevent damage and facilitate easy retrieval.</li>
-                <li><strong>Safety Procedures:</strong> Adhere to all safety protocols at all times. This includes wearing the appropriate safety gear and being aware of your surroundings to prevent accidents.</li>
-                <li><strong>Communication:</strong> Maintain clear and constant communication with the flight crew and other ground staff. Use provided communication tools to coordinate activities and ensure everyone is on the same page.</li>
-                <li><strong>Customer Service:</strong> Provide excellent customer service. Greet passengers with a friendly attitude and assist them with any issues or concerns they might have while on the ground.</li>
-                <li><strong>Time Management:</strong> Be punctual and manage your time efficiently. Ensure that all ground operations are completed promptly to avoid any delays in flight schedules.</li>
-                <li><strong>Training and Development:</strong> Engage actively in all training sessions provided by Air Flash. Stay updated with the latest procedures and protocols to ensure the highest level of efficiency and safety.</li>
-            </ol>
-            <p>We are thrilled to have you on board and look forward to seeing you excel in your role. Remember, the ground crew is the backbone of our operations, and your efforts are vital in making each flight a success.</p>
-            <p>Welcome aboard, and let’s work together to make Air Flash the best</p>
-        </div>
-        
-        </body>
-        </html>
-            
+    <div class="container document" id="groundOperations">
+        <h2>Ground Operations Guide</h2>
+        <p>Welcome To The Air Flash Ground Crew Team!</p>
+        <p>Welcome to Air Flash, where we fly, but fly faster. We are a low-cost, British Ro-Aviation airline founded in the middle of March 2024 by aviatorflash, bringing an exciting new era to ro-aviation with constant giveaways, development, flights, and many classes to choose from at such low prices! Daily, at Air Flash, we thrive to create a safe and welcoming community. Thanks to our amazing members of staff and the vibrant members of our server, this is truly possible. We operate from Liverpool John Lennon Airport, which serves as our home base.</p>
+        <p>You have chosen to be a part of our Ground Crew team, a crucial role that ensures the smooth operation of our flights and the satisfaction of our passengers. Here are some instructions and expectations to help you excel in your role:</p>
+        <ol>
+            <li><strong>Aircraft Preparation:</strong> Before each flight, ensure that the aircraft is properly prepared. This includes refueling, performing pre-flight checks, and verifying that all necessary supplies are on board.</li>
+            <li><strong>Passenger Assistance:</strong> Assist passengers with boarding and deplaning. Provide directions, answer questions, and help with any special needs to ensure a smooth and pleasant experience.</li>
+            <li><strong>Baggage Handling:</strong> Manage the loading and unloading of baggage. Ensure that all luggage is handled with care and properly stowed to
+            <li>Prevent damage and facilitate easy retrieval.</li>
+            <li><strong>Safety Procedures:</strong> Adhere to all safety protocols at all times. This includes wearing the appropriate safety gear and being aware of your surroundings to prevent accidents.</li>
+            <li><strong>Communication:</strong> Maintain clear and constant communication with the flight crew and other ground staff. Use provided communication tools to coordinate activities and ensure everyone is on the same page.</li>
+            <li><strong>Customer Service:</strong> Provide excellent customer service. Greet passengers with a friendly attitude and assist them with any issues or concerns they might have while on the ground.</li>
+            <li><strong>Time Management:</strong> Be punctual and manage your time efficiently. Ensure that all ground operations are completed promptly to avoid any delays in flight schedules.</li>
+            <li><strong>Training and Development:</strong> Engage actively in all training sessions provided by Air Flash. Stay updated with the latest procedures and protocols to ensure the highest level of efficiency and safety.</li>
+        </ol>
+        <p>We are thrilled to have you on board and look forward to seeing you excel in your role. Remember, the ground crew is the backbone of our operations, and your efforts are vital in making each flight a success.</p>
+        <p>Welcome aboard, and let’s work together to make Air Flash the best</p>
+    </div>
+    
+</body>
+</html>
