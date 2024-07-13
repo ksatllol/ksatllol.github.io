@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jetBlue Roblox</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #E0F7FA;
+            color: #01579B;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0288D1;
+            width: 100%;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            width: 150px;
+            border-radius: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .btn {
+            background-color: #039BE5;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0277BD;
+        }
+        .content {
+            text-align: center;
+            margin: 200px 20px 20px 20px; /* Adjusted margin for content visibility */
+            width: 100%;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        footer {
+            background-color: #f1f3f4;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            font-size: 12px;
+            color: #757575;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://cdn.discordapp.com/attachments/1261374917509910572/1261713458349740042/XTo9lYW.png?ex=6693f5b9&is=6692a439&hm=b7f38925b0dfa0bbee300e193a1634db611835f296b88b04c5e509faeb476973" alt="JetBlue Logo">
+        <div class="nav-buttons">
+            <div class="btn" onclick="showPage('home')">Home</div>
+            <div class="btn" onclick="showPage('timetable')">Flight Timetable</div>
+            <div class="btn" onclick="showPage('information')">Information</div>
+            <div class="btn" onclick="location.href='https://discord.gg/WVUp84TRKp'">Discord Server</div>
+            <div class="btn" onclick="location.href='https://roblox.com'">Roblox Group</div>
+        </div>
+    </header>
+    <div id="home" class="page active">
+        <div class="content">
+            <h1>Welcome to jetBlue Roblox!</h1>
+            <p>Join our amazing community and experience the best of virtual aviation with jetBlue on Roblox.</p>
+            <p>Add more information about jetBlue Roblox here...</p>
+        </div>
+    </div>
+    <div id="timetable" class="page">
+        <div class="content">
+            <h1>Flight Timetable</h1>
+            <p>Sorry! There are no scheduled flights as of now.</p>
+        </div>
+    </div>
+    <div id="information" class="page">
+        <div class="content">
+            <h1>Information</h1>
+            <p>jetBlue is going through a much needed renovation due to new management put in place. Sorry for any inconvenience that could have been caused by this.</p>
+        </div>
+    </div>
+    <footer>
+        jetBlue Roblox is in no way affiliated with the real jetBlue Airlines. We are simply a fan page.
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                if (page.id === pageId) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
