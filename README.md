@@ -16,19 +16,18 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
+            box-sizing: border-box;
         }
         header {
             background-color: #0288D1;
             width: 100%;
             padding: 10px 20px;
             text-align: center;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         header img {
             width: 150px;
@@ -52,8 +51,10 @@
         }
         .content {
             text-align: center;
-            margin: 200px 20px 20px 20px; /* Adjusted margin for content visibility */
+            margin: 20px;
             width: 100%;
+            box-sizing: border-box;
+            padding-top: 60px; /* Adjusted padding for header space */
         }
         .page {
             display: none;
@@ -66,10 +67,9 @@
             padding: 10px;
             text-align: center;
             width: 100%;
-            position: fixed;
-            bottom: 0;
             font-size: 12px;
             color: #757575;
+            margin-top: auto;
         }
     </style>
 </head>
